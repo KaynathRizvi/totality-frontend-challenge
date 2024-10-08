@@ -8,8 +8,11 @@
   "rules": {
     "@typescript-eslint/no-unused-vars": "warn", // Change to warn for better tracking
     "react/react-in-jsx-scope": "off", // If using React 17+
-    "react/prop-types": "off" // Disable if using TypeScript for prop types
+    "react/prop-types": "off", // Disable if using TypeScript for prop types
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
   },
+
   "settings": {
     "react": {
       "version": "detect" // Automatically detect the React version
