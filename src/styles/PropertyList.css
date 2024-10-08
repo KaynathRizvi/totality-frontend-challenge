@@ -1,0 +1,134 @@
+.property-container {
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-rubik);
+}
+
+.property-listing {
+    display: flex;
+    transition: 'transform 0.9s ease-in-out';
+    padding: 40px; 
+}
+
+.property-card {
+    background-color: #DEE7F1; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 35%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3%;
+}
+
+.property-image {
+    width: 100%; 
+    height: 100%; 
+    border-radius: 8px;
+}
+
+.property-title{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.property-title, .property-price, .property-room{
+    margin: 10px 0;
+}
+
+.img-slide {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.slide-button {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.slide-button:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.slide-button:hover:not(:disabled) {
+    color: #007BFF; 
+}
+
+.property-button{
+    display: flex;
+    justify-content: space-between;
+}
+
+.see-more-button, .cart-button{
+    background-color: #374254;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.see-more-button:hover, .book-button:hover {
+    background-color: #000000; 
+}
+
+@media (min-width: 768px) and (max-width: 1200px){
+    .property-container{
+        font-size: 16px;
+    }
+    .property-card {
+        margin: 15px;
+    }
+    .property-location, .property-price, .property-room{
+        font-size: 12px;
+    }
+    .see-more-button, .cart-button{
+        padding: 8px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 767px) and (min-width: 479px){
+    .property-card {
+        margin: 8px;
+    }
+    .property-title{
+        font-size: 14px;
+    }
+    .property-location, .property-price, .property-room {
+        font-size: 12px;
+    }
+    .see-more-button, .cart-button{
+        padding: 4px 4px;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .property-container{
+        font-size: 9px;
+    }
+    .property-card {
+        margin: 2px;
+    }
+    .property-title{
+        font-size: 10px;
+    }
+    .see-more-button, .cart-button{
+        padding: 3px 3px;
+        font-size: 7px;
+    }
+}

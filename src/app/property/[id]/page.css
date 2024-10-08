@@ -1,0 +1,90 @@
+.page-container{
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-rubik);
+    margin: 20px;
+    padding: 1%;
+    text-align: center;
+}
+
+.page-container h1{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.page-container p{
+    font-size: 20px;
+}
+
+.book-now{
+    background-color: #374254;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 20px;
+    margin: 8px;
+}
+.image-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.property-images, .additional-images{
+    width: calc(33.33% - 20px); 
+    height: auto; 
+    box-sizing: border-box; 
+    padding: 1%;
+}
+
+.image-style{
+    background-color: #676f7c71;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+    border-radius: 5px;
+}
+
+@media (max-width: 760px){
+.page-container{
+    margin: 15px;
+    padding: .5%;
+}
+.page-container h1{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.page-container p{
+    font-size: 16px;
+}
+
+.book-now{
+    padding: 10px 15px;
+    font-size: 14px;
+}
+}
+
+@media (max-width: 480px){
+    .page-container{
+        margin: 10px;
+        padding: .5%;
+    }
+    .page-container h1{
+        font-size: 24px;
+        font-weight: 500;
+    }
+    
+    .page-container p{
+        font-size: 14px;
+    }
+    
+    .book-now{
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+    }
