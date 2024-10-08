@@ -1,7 +1,5 @@
 import React from 'react';
 import bg from '../images/bg.png';
-import Navbar from './NavBar'; 
-import SearchBar from './SearchBar';
 import '../styles/Header.css';
 
 const Header = ({ onSearch, cartItems }) => {

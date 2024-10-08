@@ -26,35 +26,29 @@ export default function PropertyPage({ params }) {
   return (
     <div>
       <Navbar cartItems={cartItems} />
-    <div className='page-container'>
-      <h1>{title}</h1>
-      <p>Location: {location}</p>
-      <p>Price: ₹{price}/month</p>
-      <p>Room: {room} BHK</p>
-      <button className='book-now'> Book Now
-      </button>
+      <div className='page-container'>
+        <h1>{title}</h1>
+        <p>Location: {location}</p>
+        <p>Price: ₹{price}/month</p>
+        <p>Room: {room} BHK</p>
+        <button className='book-now'>Book Now</button>
 
-      <div className='image-container'>
-      <div className='property-images'>
-        <img src={property.image.src} className='image-style'/>
+        <div className='image-container'>
+          <div className='property-images'>
+            <img src={images[0]} alt="Main property" className='image-style' />
+          </div>
+          {showAdditionalImages && (
+            <div className='additional-images'>
+              {additionalImages.map((img, index) => (
+                <img key={index} src={img} alt={`Additional ${index + 1}`} className='image-style' />
+              ))}
+            </div>
+          )}
+          <button onClick={toggleImages}>
+            {showAdditionalImages ? 'Hide Additional Images' : 'Show Additional Images'}
+          </button>
+        </div>
       </div>
-      <div className='additional-images'>
-        <img src={property.additionalImages.src} className='image-style'/>
-      </div>
-      <div className='additional-images'>
-        <img src={property.bedRoom.src} className='image-style'/>
-      </div>
-      <div className='additional-images'>
-        <img src={property.kitchen.src} className='image-style'/>
-      </div>
-      <div className='additional-images'>
-        <img src={property.additionalImages.src} className='image-style'/>
-      </div>
-      <div className='additional-images'>
-        <img src={property.additionalImages.src} className='image-style'/>
-      </div>
-      </div>
-    </div>
     </div>
   );
 }

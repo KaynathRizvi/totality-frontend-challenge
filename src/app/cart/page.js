@@ -1,6 +1,5 @@
 import React from 'react';
 import Cart from '../../components/Cart'; // Adjust path as necessary
-import properties from '../../data/properties'; // Example data import
 
 const CartPage = ({ cartItems, setCartItems }) => {
   return (

@@ -17,9 +17,14 @@ export default function ListingPage() {
       <h1>All Listings</h1>
       <ul>
         {properties.map((property) => (
-          <li key={property.id}>            
+          <li key={property.id}>
             <div className='property-images'>
-              <img src={property.image.src} className='image-style' />
+              <img 
+                src={property.image.src} 
+                className='image-style' 
+                alt={`Image of ${property.title}`} // Adding meaningful alt text
+                loading="lazy" // Optimize for LCP by lazy loading images
+              />
             </div>
             <span>{property.title} - ₹{property.price}/month</span>
             <Link href={`/property/${property.id}`}>

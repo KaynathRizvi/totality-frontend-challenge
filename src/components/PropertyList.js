@@ -31,7 +31,11 @@ const PropertyList = ({ addToCart, properties }) => {
       >
         {properties.slice(currentIndex, currentIndex + propertiesToShow).map((property) => (
           <div className="property-card" key={property.id}>
-            <img src={property.image.src} alt={property.title} className="property-image" />
+            <img 
+              src={property.image.src} 
+              alt={`Image of ${property.title}`} // Adding meaningful alt text
+              className="property-image" 
+            />
             <h3 className="property-title">{property.title}</h3>
             <p className="property-room">Room: {property.room} BHK</p>
             <p className="property-location">Location: {property.location}/India</p>
@@ -40,7 +44,9 @@ const PropertyList = ({ addToCart, properties }) => {
               <Link href={`/property/${property.id}`}>
                 <button className="see-more-button">See Images</button>
               </Link>
-              <button className="cart-button" onClick={() => addToCart(property)}> Add to Cart </button>
+              <button className="cart-button" onClick={() => addToCart(property)}>
+                Add to Cart
+              </button>
             </div>
           </div>
         ))}
