@@ -25,7 +25,7 @@ const PropertyList = ({ addToCart, properties }) => {
       <div
         className="property-listing"
         style={{
-          transform: `translateX(-${currentIndex * (100 / propertiesToShow)}%)`,
+          transform: `translateX(-${currentIndex * (0 / propertiesToShow)}%)`,
           transition: 'transform 0.9s ease-in-out'
         }}
       >
