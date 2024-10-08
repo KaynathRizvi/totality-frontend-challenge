@@ -7,6 +7,7 @@ import './page.css';
 
 export default function PropertyPage({ params }) {
   const [cartItems, setCartItems] = useState([]);
+  const [showAdditionalImages, setShowAdditionalImages] = useState(false);
   const { id } = params;
 
   const property = properties.find((property) => property.id === parseInt(id));
@@ -16,8 +17,6 @@ export default function PropertyPage({ params }) {
   }
 
   const { title, location, price, room, images, additionalImages, bedRoom, kitchen } = property;
-
-  const [showAdditionalImages, setShowAdditionalImages] = useState(false);
 
   const toggleImages = () => {
     setShowAdditionalImages((prev) => !prev);

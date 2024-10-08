@@ -4,13 +4,15 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import '../styles/PropertyList.css';
 
-const PropertyList = ({ addToCart, properties }) => {
-  if (!properties || properties.length === 0) {
-    return <p>No properties available.</p>;
-  }
-
+const PropertyList = ({ addToCart, properties = [] }) => {
+  // Always call useState, no conditions involved
   const [currentIndex, setCurrentIndex] = useState(0);
   const propertiesToShow = 3;
+
+  // If there are no properties, we can handle it right away
+  if (properties.length === 0) {
+    return <p>No properties available.</p>;
+  }
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % properties.length);
@@ -25,7 +27,7 @@ const PropertyList = ({ addToCart, properties }) => {
       <div
         className="property-listing"
         style={{
-          transform: `translateX(-${currentIndex * (0 / propertiesToShow)}%)`,
+          transform: `translateX(-${currentIndex * (100 / propertiesToShow)}%)`,
           transition: 'transform 0.9s ease-in-out'
         }}
       >
@@ -33,7 +35,7 @@ const PropertyList = ({ addToCart, properties }) => {
           <div className="property-card" key={property.id}>
             <img 
               src={property.image.src} 
-              alt={`Image of ${property.title}`} // Adding meaningful alt text
+              alt={`Image of ${property.title}`} 
               className="property-image" 
             />
             <h3 className="property-title">{property.title}</h3>
