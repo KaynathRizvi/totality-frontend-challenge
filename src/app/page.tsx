@@ -9,11 +9,25 @@ import Footer from '../components/Footer';
 import Cart from '../components/Cart';
 import properties from '../data/properties';
 
-const HomePage = () => {
-  const [filteredProperties, setFilteredProperties] = useState(properties);
-  const [cartItems, setCartItems] = useState([]);
+// Define types for your property and search criteria
+interface Property {
+  title: string;
+  location: string;
+  room: number;
+  price: number;
+}
 
-  const handleSearch = (searchCriteria) => {
+interface SearchCriteria {
+  location: string;
+  room: string; // Assuming this is a string input
+  price: string; // Assuming this is a string input
+}
+
+const HomePage = () => {
+  const [filteredProperties, setFilteredProperties] = useState<Property[]>(properties);
+  const [cartItems, setCartItems] = useState<Property[]>([]); // Explicitly set type
+
+  const handleSearch = (searchCriteria: SearchCriteria) => {
     const { location, room, price } = searchCriteria;
 
     const results = properties.filter((property) => {
@@ -28,11 +42,11 @@ const HomePage = () => {
     setFilteredProperties(results);
   };
 
-  const addToCart = (property) => {
+  const addToCart = (property: Property) => {
     setCartItems((prevItems) => [...prevItems, property]);
   };
 
-  const removeFromCart = (index) => {
+  const removeFromCart = (index: number) => {
     setCartItems((prevItems) => prevItems.filter((_, i) => i !== index));
   };
 
@@ -40,7 +54,7 @@ const HomePage = () => {
     <div>
       <Navbar cartItems={cartItems} />
       <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
-      <Header />
+      <Header onSearch={handleSearch} cartItems={cartItems} /> {/* Pass props to Header */}
       <SearchBar onSearch={handleSearch} />
       <PropertyList properties={filteredProperties} addToCart={addToCart} />
       <Footer />
