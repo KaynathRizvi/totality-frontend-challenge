@@ -1,27 +1,17 @@
-// File: src/app/cart/page.tsx
 import React from 'react';
-import Cart from '../../components/Cart'; 
+import Cart from '../../components/Cart'; // Adjust path as necessary
 
-interface CartItem {
-  title: string;
-  price: number;
-}
-
+// Define an interface for the props
 interface CartPageProps {
-  cartItems: CartItem[]; 
-  setCartItems: (items: CartItem[]) => void; 
+  cartItems: Array<{ id: number; title: string; price: number }>; // Adjust the structure based on your actual data
+  setCartItems: React.Dispatch<React.SetStateAction<Array<{ id: number; title: string; price: number }>>>; // Adjust the type as needed
 }
 
 const CartPage: React.FC<CartPageProps> = ({ cartItems, setCartItems }) => {
-  const removeFromCart = (index: number) => {
-    const newCartItems = cartItems.filter((_, i) => i !== index);
-    setCartItems(newCartItems);
-  };
-
   return (
     <div>
       <h1>Your Cart</h1>
-      <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
+      <Cart cartItems={cartItems} setCartItems={setCartItems} />
     </div>
   );
 };
