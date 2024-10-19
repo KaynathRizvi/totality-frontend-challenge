@@ -1,3 +1,7 @@
 [build]
-publish = "build" # Directory where the build output is located
-command = "npm run build" # Command to generate the build
+  publish = "build"  # Directory where the build output is located
+  command = "npm run build && go clean -modcache && go mod download"  # Command to generate the build
+
+# Optional: Set Node.js version if required
+[build.environment]
+  NODE_VERSION = "14"  # Specify the Node.js version if needed
