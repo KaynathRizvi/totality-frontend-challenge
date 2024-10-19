@@ -1,16 +1,9 @@
 import React from 'react';
-import Cart from '../../components/Cart'; // Adjust the path as necessary
-
-// Define an interface for the props
-interface CartItem {
-  id: number;
-  title: string;
-  price: number;
-}
+import Cart from '../../components/Cart';
 
 interface CartPageProps {
-  cartItems: CartItem[]; // Using an array of CartItem objects
-  setCartItems: React.Dispatch<React.SetStateAction<CartItem[]>>; // Ensuring the type matches the state setter
+  cartItems: Array<{ id: number; title: string; price: number }>;
+  setCartItems: React.Dispatch<React.SetStateAction<Array<{ id: number; title: string; price: number }>>>;
 }
 
 const CartPage: React.FC<CartPageProps> = ({ cartItems, setCartItems }) => {
