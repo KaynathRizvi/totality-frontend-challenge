@@ -1,0 +1,3 @@
+[build]
+publish = "build" # Directory where the build output is located
+command = "npm run build" # Command to generate the build
